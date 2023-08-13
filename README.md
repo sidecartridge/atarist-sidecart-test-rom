@@ -1,7 +1,29 @@
-# atarist-sidecart-test-rom
-Atari ST test program for testing the Sidecart ROM Emulator
+# ATARI ST Sidecart Test suite for the ROM Emulator
+
+This repository contains a test program designed to validate the functionality and performance of the Sidecart ROM Emulator on the Atari ST series computers.
 
 ## Introduction
+
+The Sidecart ROM Emulator emulates the behavior of Atari ST cartridges and the ROM memory contained. To ensure its flawless operation and accurate timing, this test suite offers several read tests, presenting the results visually on-screen.
+
+For those new to the Sidecart ROM Emulator, we recommend visiting the official [Sidecart ROM Emulator website](https://sidecart.xyz) for a comprehensive overview.
+
+## Getting Started
+
+To get started with the testing process, you'll need two main files, both of which can be located in the [Release page](https://github.com/diegoparrilla/atarist-sidecart-test-rom/releases) of this repository:
+
+- **`TESTSCRT.TOS`**: The primary test program, which should be transferred to your Atari ST machine.
+  
+- **`TESTROM.BIN`**: A binary file containing randomized data across two ROM banks. This file needs to be copied to both the microSD card used by the Sidecart ROM Emulator and your Atari ST computer.
+
+## Setup Instructions
+
+1. **File Preparation**: Ensure that `TESTROM.BIN` resides in the same directory as `TESTSCRT.TOS` on your Atari ST. Files can be transferred using emulated floppy disks, hard drives, or other preferred methods.
+
+2. **Sidecart Setup**: Copy `TESTROM.BIN` to the microSD card of the Sidecart ROM Emulator. Insert the emulator into your powered-off Atari ST computer. As you power on the system, hold down the `SELECT` button on the Sidecart ROM Emulator. Upon successful boot, navigate the list of ROMs and choose `TESTROM.BIN`. Either reset or power cycle your Atari ST to boot into the default desktop.
+
+3. **Running the Test**: With the setup complete, simply launch the `TESTSCRT.TOS` program. It will autonomously perform a series of read tests on the emulated ROM memory, displaying each result on-screen.
+
 
 ## Requirements
 
