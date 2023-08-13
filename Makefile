@@ -24,7 +24,7 @@ LIBCMINI = /freemint/libcmini
 
 # GCC PARAMETERS
 CC = m68k-atari-mint-gcc
-CFLAGS=-c -std=gnu99 -I$(LIBCMINI)/include -g -DVERSION=\"$(VERSION)\"
+CFLAGS=-c -std=gnu99 -I$(LIBCMINI)/include -Os -DVERSION=\"$(VERSION)\"
 
 # Check if DEBUG_MODE is not empty
 ifneq ($(DEBUG_MODE),)
@@ -33,7 +33,7 @@ endif
 
 # LINKER PARAMETERS
 # Add the -s option to strip the binary
-LINKFLAGS=-nostdlib -L$(LIBCMINI)/lib -lcmini -lgcc -Wl,--traditional-format
+LINKFLAGS=-nostdlib -L$(LIBCMINI)/lib -lcmini -lgcc -Wl,--traditional-format -s
 
 _OBJS = 
 
