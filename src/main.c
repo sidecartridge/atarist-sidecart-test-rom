@@ -322,7 +322,9 @@ int testSequentialReadROMBytes(unsigned char *rom_data, unsigned char *file_data
 
         if (rom_byte != file_byte)
         {
-            unsigned long real_memory = rombank * ROMBANK_SIZE_BYTES + ROM4_MEMORY_START + i;
+            unsigned long real_memory = rombank * ROMBANK_SIZE_BYTES + ROM4_MEMORY_START;
+            real_memory += i;
+
             printf("\r\n    x Error: Data mismatch at address %lx. Expected: %02x, got: %02x\r\n", real_memory, file_byte, rom_byte);
             return 1;
         }
@@ -456,7 +458,7 @@ int testRandomReadROMBytesStats(unsigned char *rom_data, unsigned char *file_dat
     int successful_requests = 0;
     int failed_requests = 0;
 
-    printf("- Testing stats %i random access ROM %s...  ", num_requests, rombank == ROM4_BANK ? "4" : "3");
+    printf("- Testing stats %i random access bytes ROM %s...  ", num_requests, rombank == ROM4_BANK ? "4" : "3");
 
     rom_data += rombank * ROMBANK_SIZE_BYTES;  // Move the pointer to the start of the ROM bank
     file_data += rombank * ROMBANK_SIZE_BYTES; // Move the pointer to the start of the ROM bank in the file
@@ -556,9 +558,7 @@ int run()
     }
 
     printf("\r");
-    printf("ATARI ST SIDECART ROM TEST. Version: %s\r\n", VERSION);
-    printf("2023 - Diego Parrilla / @soyparrilla\r\n");
-    printf("=====================================\r\n\r\n");
+    printf("ATARI ST SIDECART ROM TEST. V%s - (C)2023 Diego Parrilla / @soyparrilla\r\n", VERSION);
 
     unsigned char *rom_memory = NULL;
     unsigned char *data = NULL;
@@ -618,7 +618,7 @@ int run()
     // Clean up
     free(data);
 
-    printf("\r\nPress any key to exit...\r\n");
+    printf("Press any key to exit...\r\n");
 
     getchar();
 
