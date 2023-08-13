@@ -544,8 +544,16 @@ int run()
     ScreenContext screenContext;
     initScreenContext(&screenContext);
 
-    __uint16_t palette[4] = {0xFFF, 0x000, 0x000, 0x000};
-    initMedResolution(palette);
+    if (screenContext.savedResolution == HIGH_RES)
+    {
+        __uint16_t palette[4] = {0xFFF, 0x000};
+        initHighResolution(palette);
+    }
+    else
+    {
+        __uint16_t palette[4] = {0xFFF, 0x000, 0x000, 0x000};
+        initMedResolution(palette);
+    }
 
     printf("\r");
     printf("ATARI ST SIDECART ROM TEST. Version: %s\r\n", VERSION);
