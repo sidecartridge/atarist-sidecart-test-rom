@@ -6,7 +6,7 @@ This repository contains a test program designed to validate the functionality a
 
 The Sidecart ROM Emulator emulates the behavior of Atari ST cartridges and the ROM memory contained. To ensure its flawless operation and accurate timing, this test suite offers several read tests, presenting the results visually on-screen.
 
-For those new to the Sidecart ROM Emulator, we recommend visiting the official [Sidecart ROM Emulator website](https://sidecart.xyz) for a comprehensive overview.
+For those new to the Sidecart ROM Emulator, we recommend visiting the official [Sidecart ROM Emulator website](https://sidecartridge.com) for a comprehensive overview.
 
 ## Getting Started
 
