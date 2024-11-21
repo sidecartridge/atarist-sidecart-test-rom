@@ -10,7 +10,7 @@ For those new to the Sidecart ROM Emulator, we recommend visiting the official [
 
 ## Getting Started
 
-To get started with the testing process, you'll need two main files, both of which can be located in the [Release page](https://github.com/diegoparrilla/atarist-sidecart-test-rom/releases) of this repository:
+To get started with the testing process, you'll need two main files, both of which can be located in the [Release page](https://github.com/sidecartridge/atarist-sidecart-test-rom/releases) of this repository:
 
 - **`TESTSCRT.TOS`**: The primary test program, which should be transferred to your Atari ST machine.
   
@@ -20,16 +20,29 @@ To get started with the testing process, you'll need two main files, both of whi
 
 1. **File Preparation**: Ensure that `TESTROM.BIN` resides in the same directory as `TESTSCRT.TOS` on your Atari ST. Files can be transferred using emulated floppy disks, hard drives, or other preferred methods.
 
-2. **Sidecart Setup**: Copy `TESTROM.BIN` to the microSD card of the Sidecart ROM Emulator. Insert the emulator into your powered-off Atari ST computer. As you power on the system, hold down the `SELECT` button on the Sidecart ROM Emulator. Upon successful boot, navigate the list of ROMs and choose `TESTROM.BIN`. Either reset or power cycle your Atari ST to boot into the default desktop.
+2. **Sidecart Setup**: Plug the Raspberry Pi Pico WH to your SidecarTridge Multidevice board and insert a formatted microSD card with the folders `/roms`, `floppies` and `hd` created in the root directory. Copy `TESTROM.BIN` to the folder `/roms` in the microSD card.
 
-3. **Running the Test**: With the setup complete, simply launch the `TESTSCRT.TOS` program. It will autonomously perform a series of read tests on the emulated ROM memory, displaying each result on-screen.
+3. **Create the file .romrescue**:  In the root folder of microSD card create a file called `.romrescue`. Edit the file and write `TESTROM.BIN` in the first line. Save it. This file is used by the Sidecart ROM Emulator to automatically load the ROM file when the Atari ST boots.
 
+4. **Eject the SIDECART** volume from your computer.
 
-## Requirements
+5. **Start the rescue ROM**: Plug the SidecarTridge Multi-device in your Atari ST computer and power it on. Wait a few seconds for the `Configurator` blinks and wait also a few seconds for an aditional blink. Now, the ROM rescue is ready. Power off and power on again the computer to guarantee the `TESTROM.BIN` is loaded. 
+Either reset or power cycle your Atari ST to boot into the default desktop.
 
-- An Atari STe computer (or emulator). There are several emulators available for Windows, Linux, and Mac. I recommend [Hatari](http://hatari.tuxfamily.org/), and I'm also a big fan of [MiSTer](https://misterfpga.org/). It should work on any Atari STe with at least 1MB of RAM.
+6. **Running the Test**: With the setup complete, simply launch the `TESTSCRT.TOS` program. It will autonomously perform a series of read tests on the emulated ROM memory, displaying each result on-screen.
 
-- The [atarist-toolkit-docker](https://github.com/diegoparrilla/atarist-toolkit-docker): You should read first how to install it and how to use it. It's very easy.
+## Requirements for users.
+
+- An Atari ST/MegaST/STE/MegaSTE computer.
+- A SidecarTridge Multi-device with a Raspberry Pi Pico WH.
+
+## Requirements for developers
+
+- An Atari ST/MegaST/STE/MegaSTE computer. There are several emulators available for Windows, Linux, and Mac. I recommend [Hatari](http://hatari.tuxfamily.org/), and I'm also a big fan of [MiSTer](https://misterfpga.org/). It should work on any Atari STe with at least 1MB of RAM.
+
+- A SidecarTridge Multi-device with a Raspberry Pi Pico WH.
+
+- The [atarist-toolkit-docker](https://github.com/sidecartridge/atarist-toolkit-docker): You should read first how to install it and how to use it. It's very easy.
 
 - A `git` client. You can use the command line or a GUI client.
 
@@ -42,7 +55,7 @@ Once you have your real Atari ST computer, Hatari emulator or MiSTer Atari ST up
 1. Clone this repository:
 
 ```
-$ git clone https://github.com/diegoparrilla/atarist-sidecart-test-rom.git
+$ git clone https://github.com/sidecartridge/atarist-sidecart-test-rom.git
 ```
 
 2. Export the `ST_WORKING_FOLDER` environment variable with the absolute path of the folder where you cloned the repository:
